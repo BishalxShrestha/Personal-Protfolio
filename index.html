@@ -47,10 +47,59 @@
 
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="bg-bg text-ink font-sans antialiased">
+    
+    <!-- Navbar-->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md transition-shadow">
+    
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight">
+                <span id="navLoader" class="nav-loader" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+                <span id="navName" class="font-mono"></span>
+            </a>
+    
+            <ul class="hidden md:flex items-center gap-8 text-sm text-ink-soft nav-links">
+                <li><a href="#about" class="nav-link hover:text-ink transition-colors">About</a></li>
+                <li><a href="#skills" class="nav-link hover:text-ink transition-colors">Skills</a></li>
+                <li><a href="#projects" class="nav-link hover:text-ink transition-colors">Projects</a></li>
+                <li><a href="#contact" class="nav-link hover:text-ink transition-colors">Contact</a></li>
+            </ul>
+    
+            <a href="#contact"
+                class="hidden md:inline-flex items-center rounded-full bg-ink text-white text-sm font-medium px-4 py-2 hover:bg-accent transition-colors">
+                Let's talk
+            </a>
+    
+            <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false"
+                class="md:hidden p-2 -mr-2 rounded-lg hover:bg-bg-soft">
+                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Scroll progress bar: fills left-to-right as the page scrolls -->
+    
+        <div class="h-[3px] w-full bg-transparent">
+            <div id="scrollProgress" class="h-full bg-accent" style="width:0%"></div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-bg px-6 py-4">
+            <ul class="flex flex-col gap-4 text-ink-soft">
+                <li><a href="#about" class="mobile-link">About</a></li>
+                <li><a href="#skills" class="mobile-link">Skills</a></li>
+                <li><a href="#projects" class="mobile-link">Projects</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
+
+
+    <script src="js/main.js"></script>
 </body>
-<script src="js/main.js"></script>
-</body>
+
 
 </html>
