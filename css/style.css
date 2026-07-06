@@ -37,7 +37,7 @@ html {
 
 /* Slim, quiet scrollbar to match the light, minimal palette */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {

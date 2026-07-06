@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavLoader();
   initSmoothScrollNav();
   initMobileMenu();
+  initScrollReveal();
+  initTypewriter();
+  initScrollProgress();
+  initNavbarShadow();
 
 });
 /* ---------- Navbar loading animation ----------
@@ -99,4 +103,108 @@ function openMobileMenu() {
 function closeMobileMenu() {
   document.getElementById('mobileMenu')?.classList.add('hidden');
   document.getElementById('menuBtn')?.setAttribute('aria-expanded', 'false');
+}
+
+
+/* ---------- Scroll reveal ----------
+   Fades + rises .reveal elements into place as they enter view.
+   Also triggers the skill-bar fill animation once visible. */
+function initScrollReveal() {
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('in-view'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+
+        // If this reveal block contains skill bars, animate them now
+        entry.target.querySelectorAll('.skill-bar').forEach((bar) => {
+          const width = bar.getAttribute('data-width') || '0';
+          requestAnimationFrame(() => {
+            bar.style.width = width + '%';
+          });
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach((el) => observer.observe(el));
+}
+
+/* ---------- Hero typewriter ----------
+   Mimics a ChatGPT-style streaming response in the hero bubble. */
+function initTypewriter() {
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+
+  const text = "I don't just write code. I build software people wants to keep using.";
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    el.textContent = text;
+    return;
+  }
+
+  let i = 0;
+  const speed = 37; // ms per character
+
+  function type() {
+    if (i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+/* ---------- Scroll progress bar ----------
+   Fills the thin bar under the navbar from 0% to 100% as the
+   user scrolls from the top of the page to the bottom. */
+function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+
+  let ticking = false;
+
+  function update() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
+}
+
+/* ---------- Navbar shadow on scroll ---------- */
+
+function initNavbarShadow() {
+  const navbar = document.getElementById('navbar');
+  if (!navbar) return;
+
+  const toggleShadow = () => {
+    if (window.scrollY > 8) {
+      navbar.classList.add('shadow-sm');
+    } else {
+      navbar.classList.remove('shadow-sm');
+    }
+  };
+  toggleShadow();
+  window.addEventListener('scroll', toggleShadow, { passive: true });
 }
