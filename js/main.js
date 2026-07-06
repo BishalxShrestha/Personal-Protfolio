@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initScrollProgress();
   initNavbarShadow();
+  initLazyLoading();
 
 });
 /* ---------- Navbar loading animation ----------
@@ -207,4 +208,36 @@ function initNavbarShadow() {
   };
   toggleShadow();
   window.addEventListener('scroll', toggleShadow, { passive: true });
+}
+
+/* ---------- Lazy loading images ----------
+   Images use data-src instead of src. Once an image scrolls
+   near the viewport, we swap it in and fade it in via CSS. */
+function initLazyLoading() {
+  const images = document.querySelectorAll('img.lazy-img[data-src]');
+
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: just load everything immediately
+    images.forEach(loadImage);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        loadImage(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '150px 0px', threshold: 0.01 });
+
+  images.forEach((img) => observer.observe(img));
+}
+
+function loadImage(img) {
+  const src = img.getAttribute('data-src');
+  if (!src) return;
+  img.src = src;
+  img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+  img.removeAttribute('data-src');
 }
