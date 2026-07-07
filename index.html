@@ -1,318 +1,522 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bishal Shrestha — Full-Stack Developer</title>
-    <meta name="description" content="Portfolio of Bishal Shrestha, Full-Stack Developer." />
+    <meta
+      name="description"
+      content="Portfolio of Bishal Shrestha, Full-Stack Developer."
+    />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind (CDN, no build step needed) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        bg: '#FFFFFF',
-                        'bg-soft': '#F7F7F8',
-                        'bg-soft2': '#ECECF1',
-                        ink: '#0D0D0D',
-                        'ink-soft': '#6E6E80',
-                        line: '#E5E5E5',
-                        accent: '#10A37F',
-                        'accent-dark': '#0D8A6C',
-                        'accent-soft': '#E6F4EF',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-                    },
-                    boxShadow: {
-                        card: '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
-                        cardHover: '0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.08)',
-                    },
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              bg: "#FFFFFF",
+              "bg-soft": "#F7F7F8",
+              "bg-soft2": "#ECECF1",
+              ink: "#0D0D0D",
+              "ink-soft": "#6E6E80",
+              line: "#E5E5E5",
+              accent: "#10A37F",
+              "accent-dark": "#0D8A6C",
+              "accent-soft": "#E6F4EF",
             },
-        }
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+            },
+            boxShadow: {
+              card: "0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)",
+              cardHover:
+                "0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.08)",
+            },
+          },
+        },
+      };
     </script>
 
     <link rel="stylesheet" href="css/style.css" />
-</head>
-<body class="bg-bg text-ink font-sans antialiased">
-    
+  </head>
+  <body class="bg-bg text-ink font-sans antialiased">
     <!-- Navbar-->
-    <header id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md transition-shadow">
-    
-        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight">
-                <span id="navLoader" class="nav-loader" aria-hidden="true">
-                    <span></span><span></span><span></span>
-                </span>
-                <span id="navName" class="font-mono"></span>
-            </a>
-    
-            <ul class="hidden md:flex items-center gap-8 text-sm text-ink-soft nav-links">
-                <li><a href="#about" class="nav-link hover:text-ink transition-colors">About</a></li>
-                <li><a href="#skills" class="nav-link hover:text-ink transition-colors">Skills</a></li>
-                <li><a href="#projects" class="nav-link hover:text-ink transition-colors">Projects</a></li>
-                <li><a href="#contact" class="nav-link hover:text-ink transition-colors">Contact</a></li>
-            </ul>
-    
-            <a href="#contact"
-                class="hidden md:inline-flex items-center rounded-full bg-ink text-white text-sm font-medium px-4 py-2 hover:bg-accent transition-colors">
-                Let's talk
-            </a>
-    
-            <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false"
-                class="md:hidden p-2 -mr-2 rounded-lg hover:bg-bg-soft">
-                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </nav>
-        <!-- Scroll progress bar: fills left-to-right as the page scrolls -->
-    
-        <div class="h-[3px] w-full bg-transparent">
-            <div id="scrollProgress" class="h-full bg-accent" style="width:0%"></div>
-        </div>
-    
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-bg px-6 py-4">
-            <ul class="flex flex-col gap-4 text-ink-soft">
-                <li><a href="#about" class="mobile-link">About</a></li>
-                <li><a href="#skills" class="mobile-link">Skills</a></li>
-                <li><a href="#projects" class="mobile-link">Projects</a></li>
-                <li><a href="#contact" class="mobile-link">Contact</a></li>
-            </ul>
-        </div>
+    <header
+      id="navbar"
+      class="fixed top-0 inset-x-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md transition-shadow"
+    >
+      <nav
+        class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <a
+          href="#home"
+          class="flex items-center gap-2 font-semibold tracking-tight"
+        >
+          <span id="navLoader" class="nav-loader" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span id="navName" class="font-mono"></span>
+        </a>
+
+        <ul
+          class="hidden md:flex items-center gap-8 text-sm text-ink-soft nav-links"
+        >
+          <li>
+            <a href="#about" class="nav-link hover:text-ink transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="nav-link hover:text-ink transition-colors"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="nav-link hover:text-ink transition-colors"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link hover:text-ink transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <a
+          href="#contact"
+          class="hidden md:inline-flex items-center rounded-full bg-ink text-white text-sm font-medium px-4 py-2 hover:bg-accent transition-colors"
+        >
+          Let's talk
+        </a>
+
+        <button
+          id="menuBtn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          class="md:hidden p-2 -mr-2 rounded-lg hover:bg-bg-soft"
+        >
+          <svg
+            id="menuIcon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </nav>
+      <!-- Scroll progress bar: fills left-to-right as the page scrolls -->
+
+      <div class="h-[3px] w-full bg-transparent">
+        <div
+          id="scrollProgress"
+          class="h-full bg-accent"
+          style="width: 0%"
+        ></div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-line bg-bg px-6 py-4"
+      >
+        <ul class="flex flex-col gap-4 text-ink-soft">
+          <li><a href="#about" class="mobile-link">About</a></li>
+          <li><a href="#skills" class="mobile-link">Skills</a></li>
+          <li><a href="#projects" class="mobile-link">Projects</a></li>
+          <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+      </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="relative pt-40 pb-24 px-6 overflow-hidden">
+      <!-- Hero Section -->
+      <section id="home" class="relative pt-40 pb-24 px-6 overflow-hidden">
+        <div
+          class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,#ececf1_1px,transparent_1px)] [background-size:24px_24px] opacity-70"
+        ></div>
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-line bg-bg-soft px-3 py-1 text-xs font-mono text-ink-soft mb-6"
+          >
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            Open to Full-Time Software Engineering Opportunities
+          </span>
+          <h1
+            class="text-xl sm:text-4xl font-extrabold tracking-tight leading-tight"
+          >
+            <span class="text-accent">Software Developer</span>
+            <br class="hidden sm:block" />
+            <p class="text-lg sm:text-3xl text-ink mt-2">
+              Turning ideas into scalable digital products
+            </p>
+          </h1>
+        </div>
+        <!-- Signature element: a "ChatGPT style" prompt/response exchange -->
+        <div class="max-w-2xl mx-auto mt-12 reveal">
+          <div
+            class="rounded-2xl border border-line bg-bg shadow-card overflow-hidden"
+          >
+            <!-- fake toolbar -->
             <div
-                class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,#ececf1_1px,transparent_1px)] [background-size:24px_24px] opacity-70">
+              class="flex items-center gap-1.5 px-4 py-3 border-b border-line bg-bg-soft"
+            >
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+              <span class="ml-3 text-xs font-mono text-ink-soft"
+                >about-bishal.chat</span
+              >
             </div>
-            <div class="max-w-3xl mx-auto text-center reveal">
-                <span
-                    class="inline-flex items-center gap-2 rounded-full border border-line bg-bg-soft px-3 py-1 text-xs font-mono text-ink-soft mb-6">
-                    <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                    Open to Full-Time Software Engineering Opportunities
-                </span>
-                <h1 class="text-xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-                    <span class="text-accent">Software Developer</span> 
-                    <br class="hidden sm:block" />
-                    <p class="text-lg sm:text-3xl text-ink mt-2">
-                        Turning ideas into scalable digital products
-                    </p>
-                </h1>
-                
-                
-            </div>
-            <!-- Signature element: a "ChatGPT style" prompt/response exchange -->
-            <div class="max-w-2xl mx-auto mt-12 reveal">
-                <div class="rounded-2xl border border-line bg-bg shadow-card overflow-hidden">
-                    <!-- fake toolbar -->
-                    <div class="flex items-center gap-1.5 px-4 py-3 border-b border-line bg-bg-soft">
-                        <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
-                        <span class="ml-3 text-xs font-mono text-ink-soft">about-bishal.chat</span>
-                    </div>
-            
-                    <div class="p-5 sm:p-6 space-y-4 text-sm sm:text-base">
-                        <!-- user prompt -->
-                        <div class="flex justify-end">
-                            <div class="max-w-[80%] rounded-2xl bg-ink text-white px-4 py-2.5">
-                                What makes you different?
-                            </div>
-                        </div>
-                        <!-- assistant streaming response -->
-                        <div class="flex justify-start gap-3">
-                            <span
-                                class="mt-1 w-6 h-6 rounded-full bg-accent-soft border border-accent/30 flex items-center justify-center shrink-0 text-[10px] font-mono text-accent-dark">AI</span>
-                            <div class="max-w-[85%] rounded-2xl bg-bg-soft px-4 py-2.5">
-                                <span id="typewriter" class="font-mono text-ink"></span><span id="cursor"
-                                    class="inline-block w-[2px] h-4 bg-accent ml-0.5 align-middle animate-[blink_1s_steps(1)_infinite]"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-4 mt-10 reveal">
-                <a href="assets/CV.pdf" download
-                    class="rounded-full bg-accent font-mono text-white text-sm font-medium px-5 py-2.5 hover:bg-accent-dark transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
-                    </svg>
-                    Download CV
-                </a>
-                <a href="#projects"
-                    class="rounded-full border border-line text-sm font-mono font-medium px-5 py-2.5 hover:bg-bg-soft transition-colors">View my work</a>
-               
-                </div>
 
-                <!-- Social Links — flows inline on mobile, becomes a vertical rail on desktop -->
+            <div class="p-5 sm:p-6 space-y-4 text-sm sm:text-base">
+              <!-- user prompt -->
+              <div class="flex justify-end">
                 <div
-                    class="flex lg:flex-col justify-center items-center gap-6 lg:gap-5 mt-20 lg:mt-0 lg:absolute lg:right-8 lg:top-1/3 lg:-translate-y-1/3 reveal">
-                    <a href="https://github.com/BishalxShrestha" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                        class="text-gray-500 hover:text-black transition-all duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.41-1.31.75-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.28 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                    </a>
-                
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                        class="text-gray-500 hover:text-[#0A66C2] transition-all duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-                        </svg>
-                    </a>
-                
-                    <a href="https://www.instagram.com/b_syal_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                        class="text-gray-500 hover:text-[#E4405F] transition-all duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm8.75 1a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
-                        </svg>
-                    </a>
-                
-                    <a href="mailto:bishalxshrestha@gmail.com" aria-label="Email" class="text-gray-500 hover:text-[#EA4335] transition-colors duration-300">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </a>
-                
-                    <!-- trailing line, desktop only -->
-                    <span class="hidden lg:block w-px h-16 bg-line"></span>
+                  class="max-w-[80%] rounded-2xl bg-ink text-white px-4 py-2.5"
+                >
+                  What makes you different?
                 </div>
-
-        </section>
-
-        <!-- ============ ABOUT ============ -->
-        <section id="about" class="py-24 px-6 mt-14 bg-bg-soft border-t border-line">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-[220px_1fr] gap-12 items-start">
-                <div class="reveal">
-                    <p class="font-mono text-xs text-accent-dark uppercase tracking-wider mb-2">About</p>
-                    <h2 class="text-2xl font-bold">Who I am ?</h2>
+              </div>
+              <!-- assistant streaming response -->
+              <div class="flex justify-start gap-3">
+                <span
+                  class="mt-1 w-6 h-6 rounded-full bg-accent-soft border border-accent/30 flex items-center justify-center shrink-0 text-[10px] font-mono text-accent-dark"
+                  >AI</span
+                >
+                <div class="max-w-[85%] rounded-2xl bg-bg-soft px-4 py-2.5">
+                  <span id="typewriter" class="font-mono text-ink"></span
+                  ><span
+                    id="cursor"
+                    class="inline-block w-[2px] h-4 bg-accent ml-0.5 align-middle animate-[blink_1s_steps(1)_infinite]"
+                  ></span>
                 </div>
-                <div class="reveal space-y-4 text-ink-soft leading-relaxed">
-                    <p>
-                        I enjoy building software that is fast, scalable, and genuinely useful. My journey began with curiosity about how
-                        technology works and has grown into a passion for designing <strong class="text-ink">full-stack applications and AI-powered solutions</strong> that solve
-                        real problems.
-                    </p>
-                    <p>
-                        With a background in <strong class="text-ink">Software Engineering</strong>, I work across the entire development lifecycle — from creating intuitive user
-                        interfaces to developing secure backend services and integrating machine learning into practical applications. I value
-                        clean architecture, maintainable code, and continuous learning because <strong><i> "Software isn't just built for today — it's
-                        built to evolve"</i></strong>.
-                    </p>
-                    <p>
-                        I'm currently seeking opportunities where I can contribute to meaningful products, collaborate with talented engineers,
-                        and continue growing as a software developer.
-                    </p>
-                    <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono">📍 Nepal</span>
-                        <span class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono">🎓 Gandaki College of Engineering and Science</span>
-                        <span class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono">💼 2+ yrs
-                            experience</span>
-                    </div>
-                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <!-- ============ SKILLS ============ -->
-        <section id="skills" class="py-24 px-6 border-t border-line">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-14 reveal">
-                    <p class="font-mono text-xs text-accent-dark uppercase tracking-wider mb-2">Skills</p>
-                    <h2 class="text-2xl sm:text-2xl font-bold">Technologies & Tools</h2>
-                </div>
-        
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    <div class="reveal flex flex-col items-center gap-3 p-6 ">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/frontend.gif" alt="Frontend" loading="lazy" />
-                        <p class="font-semibold text-sm">Frontend</p>
-                        <p class="text-xs text-ink-soft text-center">React, Next.js, HTML, CSS, Tailwind</p>
-                    </div>
-                    <div class="reveal flex flex-col items-center gap-3 p-6 ">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/backend.gif" alt="Backend" loading="lazy" />
-                        <p class="font-semibold text-sm">Backend</p>
-                        <p class="text-xs text-ink-soft text-center">Django, FastAPI, Node.js, Express, REST API</p>
-                    </div>
-                    <div class="reveal flex flex-col items-center gap-3 p-6 ">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/database.gif" alt="Database" loading="lazy" />
-                        <p class="font-semibold text-sm">Database</p>
-                        <p class="text-xs text-ink-soft text-center">PostgreSQL, MongoDB, MYSQL </p>
-                    </div>
-                    <div class="reveal flex flex-col items-center gap-3 p-6 ">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/python.gif" alt="Python" loading="lazy" />
-                        <p class="font-semibold text-sm">Python & AI</p>
-                        <p class="text-xs text-ink-soft text-center">TensorFlow, Keras, PyTorch for AI</p>
-                    </div>
-        
-                    <div class="reveal flex flex-col items-center gap-3 p-6">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/javascript.gif" alt="JavaScript" loading="lazy" />
-                        <p class="font-semibold text-sm">JavaScript</p>
-                        <p class="text-xs text-ink-soft text-center">Modern Web Applications</p>
-                    </div>
-        
-                    <div
-                        class="reveal flex flex-col items-center gap-3 p-6  ">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/github.gif" alt="GitHub" loading="lazy" />
-                        <p class="font-semibold text-sm">Git & GitHub</p>
-                        <p class="text-xs text-ink-soft text-center">Version Control & Collaboration</p>
-                    </div>
-        
-                    <div
-                        class="reveal flex flex-col items-center gap-3 p-6">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/docker.png" alt="Docker" loading="lazy" />
-                        <p class="font-semibold text-sm">Docker</p>
-                        <p class="text-xs text-ink-soft text-center">Containerization and deployment</p>
-                    </div>
-                    <div
-                        class="reveal flex flex-col items-center gap-3 p-6">
-                        <img class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
-                            data-src="assets/images/linux.gif" alt="Linux" loading="lazy" />
-                        <p class="font-semibold text-sm">Linux</p>
-                        <p class="text-xs text-ink-soft text-center">Development Environment </p>
-                    </div>
-        
-        
-                    
-                </div>
-        
+        <div class="flex flex-wrap justify-center gap-4 mt-10 reveal">
+          <a
+            href="assets/CV.pdf"
+            download
+            class="rounded-full bg-accent font-mono text-white text-sm font-medium px-5 py-2.5 hover:bg-accent-dark transition-colors flex items-center gap-2"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"
+              />
+            </svg>
+            Download CV
+          </a>
+          <a
+            href="#projects"
+            class="rounded-full border border-line text-sm font-mono font-medium px-5 py-2.5 hover:bg-bg-soft transition-colors"
+            >View my work</a
+          >
+        </div>
+
+        <!-- Social Links — flows inline on mobile, becomes a vertical rail on desktop -->
+        <div
+          class="flex lg:flex-col justify-center items-center gap-6 lg:gap-5 mt-20 lg:mt-0 lg:absolute lg:right-8 lg:top-1/3 lg:-translate-y-1/3 reveal"
+        >
+          <a
+            href="https://github.com/BishalxShrestha"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="text-gray-500 hover:text-black transition-all duration-300"
+          >
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.41-1.31.75-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.28 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-gray-500 hover:text-[#0A66C2] transition-all duration-300"
+          >
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="https://www.instagram.com/b_syal_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="text-gray-500 hover:text-[#E4405F] transition-all duration-300"
+          >
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm8.75 1a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="mailto:bishalxshrestha@gmail.com"
+            aria-label="Email"
+            class="text-gray-500 hover:text-[#EA4335] transition-colors duration-300"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </a>
+
+          <!-- trailing line, desktop only -->
+          <span class="hidden lg:block w-px h-16 bg-line"></span>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section
+        id="about"
+        class="py-24 px-6 mt-14 bg-bg-soft border-t border-line"
+      >
+        <div
+          class="max-w-5xl mx-auto grid md:grid-cols-[220px_1fr] gap-12 items-start"
+        >
+          <div class="reveal">
+            <p
+              class="font-mono text-xs text-accent-dark uppercase tracking-wider mb-2"
+            >
+              About
+            </p>
+            <h2 class="text-2xl font-bold">Who I am ?</h2>
+          </div>
+          <div class="reveal space-y-4 text-ink-soft leading-relaxed">
+            <p>
+              I enjoy building software that is fast, scalable, and genuinely
+              useful. My journey began with curiosity about how technology works
+              and has grown into a passion for designing
+              <strong class="text-ink"
+                >full-stack applications and AI-powered solutions</strong
+              >
+              that solve real problems.
+            </p>
+            <p>
+              With a background in
+              <strong class="text-ink">Software Engineering</strong>, I work
+              across the entire development lifecycle — from creating intuitive
+              user interfaces to developing secure backend services and
+              integrating machine learning into practical applications. I value
+              clean architecture, maintainable code, and continuous learning
+              because
+              <strong
+                ><i>
+                  "Software isn't just built for today — it's built to
+                  evolve"</i
+                ></strong
+              >.
+            </p>
+            <p>
+              I'm currently seeking opportunities where I can contribute to
+              meaningful products, collaborate with talented engineers, and
+              continue growing as a software developer.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <span
+                class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono"
+                >📍 Nepal</span
+              >
+              <span
+                class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono"
+                >🎓 Gandaki College of Engineering and Science</span
+              >
+              <span
+                class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-mono"
+                >💼 2+ yrs experience</span
+              >
             </div>
-        </section>
-        
+          </div>
+        </div>
+      </section>
 
+      <!-- ============ SKILLS ============ -->
+      <section id="skills" class="py-24 px-6 border-t border-line">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-14 reveal">
+            <p
+              class="font-mono text-xs text-accent-dark uppercase tracking-wider mb-2"
+            >
+              Skills
+            </p>
+            <h2 class="text-2xl sm:text-2xl font-bold">Technologies & Tools</h2>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/frontend.gif"
+                alt="Frontend"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Frontend</p>
+              <p class="text-xs text-ink-soft text-center">
+                React, Next.js, HTML, CSS, Tailwind
+              </p>
+            </div>
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/backend.gif"
+                alt="Backend"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Backend</p>
+              <p class="text-xs text-ink-soft text-center">
+                Django, FastAPI, Node.js, Express, REST API
+              </p>
+            </div>
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/database.gif"
+                alt="Database"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Database</p>
+              <p class="text-xs text-ink-soft text-center">
+                PostgreSQL, MongoDB, MYSQL
+              </p>
+            </div>
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/python.gif"
+                alt="Python"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Python & AI</p>
+              <p class="text-xs text-ink-soft text-center">
+                TensorFlow, Keras, PyTorch for AI
+              </p>
+            </div>
+
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/javascript.gif"
+                alt="JavaScript"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">JavaScript</p>
+              <p class="text-xs text-ink-soft text-center">
+                Modern Web Applications
+              </p>
+            </div>
+
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/github.gif"
+                alt="GitHub"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Git & GitHub</p>
+              <p class="text-xs text-ink-soft text-center">
+                Version Control & Collaboration
+              </p>
+            </div>
+
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/docker.png"
+                alt="Docker"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Docker</p>
+              <p class="text-xs text-ink-soft text-center">
+                Containerization and deployment
+              </p>
+            </div>
+            <div class="reveal flex flex-col items-center gap-3 p-6">
+              <img
+                class="lazy-img w-14 h-14 object-contain opacity-0 transition-opacity duration-700"
+                data-src="assets/images/linux.gif"
+                alt="Linux"
+                loading="lazy"
+              />
+              <p class="font-semibold text-sm">Linux</p>
+              <p class="text-xs text-ink-soft text-center">
+                Development Environment
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-
-
+    <!-- Back to top -->
+    <button
+      id="toTop"
+      aria-label="Back to top"
+      class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-ink text-white shadow-card flex items-center justify-center opacity-0 pointer-events-none transition-all hover:bg-accent"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
+    </button>
     <script src="js/main.js"></script>
-</body>
-
-
+  </body>
 </html>
