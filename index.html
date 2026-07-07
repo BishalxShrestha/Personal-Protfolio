@@ -85,6 +85,13 @@
           </li>
           <li>
             <a
+              href="#education"
+              class="nav-link hover:text-ink transition-colors"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
               href="#projects"
               class="nav-link hover:text-ink transition-colors"
               >Projects</a
@@ -144,6 +151,7 @@
         <ul class="flex flex-col gap-4 text-ink-soft">
           <li><a href="#about" class="mobile-link">About</a></li>
           <li><a href="#skills" class="mobile-link">Skills</a></li>
+          <li><a href="#education" class="mobile-link">Education</a></li>
           <li><a href="#projects" class="mobile-link">Projects</a></li>
           <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
@@ -151,24 +159,27 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- ============ Hero Section  ============ -->
       <section id="home" class="relative pt-40 pb-24 px-6 overflow-hidden">
         <div
           class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,#ececf1_1px,transparent_1px)] [background-size:24px_24px] opacity-70"
         ></div>
         <div class="max-w-3xl mx-auto text-center reveal">
           <span
-            class="inline-flex items-center gap-2 rounded-full border border-line bg-bg-soft px-3 py-1 text-xs font-mono text-ink-soft mb-6"
+            class="inline-flex items-center gap-2 rounded-full border border-line bg-bg-soft px-3 py-1 text-xs font-mono text-ink-soft mb-6 whitespace-nowrap"
           >
             <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-            Open to Full-Time Software Engineering Opportunities
+            <span class="hidden sm:inline"
+              >Open to Software Engineering Opportunities</span
+            >
+            <span class="sm:hidden">Open to Full-time Roles</span>
           </span>
           <h1
-            class="text-xl sm:text-4xl font-extrabold tracking-tight leading-tight"
+            class="text-4xl sm:text-4xl font-extrabold tracking-tight leading-tight"
           >
             <span class="text-accent">Software Developer</span>
             <br class="hidden sm:block" />
-            <p class="text-lg sm:text-3xl text-ink mt-2">
+            <p class="text-xl sm:text-3xl text-ink mt-2">
               Turning ideas into scalable digital products
             </p>
           </h1>
@@ -490,6 +501,194 @@
               <p class="font-semibold text-sm">Linux</p>
               <p class="text-xs text-ink-soft text-center">
                 Development Environment
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION ============ -->
+      <section
+        id="education"
+        class="py-24 px-6 bg-bg-soft border-t border-line"
+      >
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-14 reveal">
+            <p
+              class="font-mono text-xs text-accent-dark uppercase tracking-wider mb-2"
+            >
+              Education
+            </p>
+            <h2 class="text-2xl sm:text-3xl font-bold">Academic background</h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div
+              class="reveal rounded-2xl border border-line bg-bg shadow-card hover:shadow-cardHover transition-shadow p-6"
+            >
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <span
+                  class="w-11 h-11 rounded-xl bg-accent-soft border border-accent/30 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-5 h-5 text-accent-dark"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 14l9-5-9-5-9 5 9 5z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 14l6.16-3.42A12.1 12.1 0 0121 14.5v3.5"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 14.5v-3.5m9 3.5v6m-4-3.5v3a4 4 0 008 0v-3"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="font-mono text-xs rounded-full border border-line bg-bg-soft text-ink-soft px-2.5 py-1 whitespace-nowrap"
+                >
+                  2021 — 2025
+                </span>
+              </div>
+              <h3 class="font-semibold text-lg mb-1">
+                Bachelor of Software Engineering
+              </h3>
+              <p class="text-sm text-ink-soft mb-4">
+                Gandaki College of Engineering and Science | Pokhara, NP
+              </p>
+              <p class="text-sm text-ink-soft mb-4">
+                Graduated with a strong foundation in software engineering,
+                covering full-stack web development, software architecture,
+                databases, algorithms, artificial intelligence, and modern
+                software development practices.
+                <!-- <span
+                  class="text-xs font-mono text-ink rounded-full bg-bg-soft border border-line px-2.5"
+                  >GPA 3.14</span
+                > -->
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Artificial Intelligence</span
+                >
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Data Structures & Algorithms</span
+                >
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Database Systems</span
+                >
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Object-Oriented Programming</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="reveal rounded-2xl border border-line bg-bg shadow-card hover:shadow-cardHover transition-shadow p-6"
+            >
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <span
+                  class="w-11 h-11 rounded-xl bg-accent-soft border border-accent/30 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-5 h-5 text-accent-dark"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 21v-4h4v4"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="font-mono text-xs rounded-full border border-line bg-bg-soft text-ink-soft px-2.5 py-1 whitespace-nowrap"
+                >
+                  2018 - 2020
+                </span>
+              </div>
+              <h3 class="font-semibold text-lg mb-1">
+                Higher Secondary Education (Science Stream)
+              </h3>
+              <p class="text-sm text-ink-soft mb-4">
+                Srijana Secondary School | Pokhara, NP
+              </p>
+              <p class="text-sm text-ink-soft mb-4">
+                Completed higher secondary education with a focus on Physics,
+                Chemistry, Mathematics, and Computer Science, building a strong
+                analytical and problem-solving foundation for software
+                engineering.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Physics</span
+                >
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Chemistry</span
+                >
+                <span
+                  class="text-xs font-mono rounded-full bg-bg-soft border border-line px-2.5 py-1"
+                  >Mathematics</span
+                >
+              </div>
+            </div>
+            <div
+              class="reveal rounded-2xl border border-line bg-bg shadow-card hover:shadow-cardHover transition-shadow p-6"
+            >
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <span
+                  class="w-11 h-11 rounded-xl bg-accent-soft border border-accent/30 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-5 h-5 text-accent-dark"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13M12 6.253C10.832 5.477 9.246 5 7.5 5A4.5 4.5 0 003 9.5v9A4.5 4.5 0 017.5 14c1.746 0 3.332.477 4.5 1.253m0-9C13.168 5.477 14.754 5 16.5 5A4.5 4.5 0 0121 9.5v9a4.5 4.5 0 00-4.5-4.5c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="font-mono text-xs rounded-full border border-line bg-bg-soft text-ink-soft px-2.5 py-1 whitespace-nowrap"
+                >
+                  2006 - 2018
+                </span>
+              </div>
+              <h3 class="font-semibold text-lg mb-1">
+                Secondary Education Examination (SEE)
+              </h3>
+              <p class="text-sm text-ink-soft mb-4">
+                Sishu Niketan English Boarding School | Syangja, NP
+              </p>
+              <p class="text-sm text-ink-soft mb-4">
+                Built a strong academic foundation through studies in
+                mathematics, science, and computer education, developing the
+                analytical skills that led to a career in software engineering.
               </p>
             </div>
           </div>
