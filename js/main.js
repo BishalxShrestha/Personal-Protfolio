@@ -351,3 +351,13 @@ if (contactForm) {
       });
   });
 }
+
+const viewButton = document.getElementById("viewBtn");
+if (viewButton) {
+  viewButton.addEventListener("click", () => {
+    viewButton.innerHTML = "Coming soon...";
+    setTimeout(() => {
+      viewButton.innerHTML = "View my work";
+    }, 2000);
+  });
+}
