@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarShadow();
   initLazyLoading();
   initBackToTop();
+  setYear();
 });
 /* ---------- Navbar loading animation ----------
    Shows a ChatGPT-style "thinking" dot loader in place of the name
@@ -280,4 +281,10 @@ function initBackToTop() {
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+}
+
+/* ---------- Footer year ---------- */
+function setYear() {
+  const el = document.getElementById("year");
+  if (el) el.textContent = new Date().getFullYear();
 }
