@@ -288,3 +288,66 @@ function setYear() {
   const el = document.getElementById("year");
   if (el) el.textContent = new Date().getFullYear();
 }
+
+/* ---------- Contact form (EmailJS) ---------- */
+
+const EMAILJS_SERVICE_ID = "service_qg3umn9";
+const EMAILJS_TEMPLATE_ID = "template_4hfwwud";
+const EMAILJS_PUBLIC_KEY = "Gm8BqGXMBxvOTuir_";
+
+if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const status = document.getElementById("formStatus");
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = "Please fill in every field.";
+      status.classList.remove("text-accent");
+      status.classList.add("text-red-500");
+      return;
+    }
+
+    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+      status.textContent =
+        "Contact form not connected yet — add your EmailJS keys in main.js.";
+      status.classList.add("text-red-500");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    status.textContent = "";
+    status.classList.remove("text-red-500");
+
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        message: message,
+      })
+      .then(() => {
+        status.textContent = `Thanks, ${name}! Your message is on its way.`;
+        status.classList.add("text-accent");
+        contactForm.reset();
+      })
+      .catch(() => {
+        status.textContent =
+          "Something went wrong — please email me directly instead.";
+        status.classList.add("text-red-500");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send message";
+      });
+  });
+}
